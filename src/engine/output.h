@@ -15,6 +15,9 @@
 #define EXIT_FAIL 1
 #define EXIT_TIMEOUT 2
 
+#define TC_DEFAULT 0
+#define TC_YELLOW 1
+
 void out_action(
     char const * const action,
     char const * const target,
@@ -24,6 +27,7 @@ void out_action(
     int const exit_reason
 );
 
+void out_colored(int color_code);
 void out_flush();
 void err_flush();
 void out_puts(char const * const s);
