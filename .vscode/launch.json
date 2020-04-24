@@ -16,6 +16,7 @@
             "externalConsole": true,
             "MIMode": "lldb"
         },
+<<<<<<< HEAD
         {
             "name": "(gdb) Launch: example/hello",
             "type": "cppdbg",
@@ -54,5 +55,18 @@
                 }
             ]
         },
+=======
+       {
+            "name": "(Windows) Launch CMake Target",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": ["-c","-sBOOST_BUILD_PATH=${workspaceFolder}", "colors"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}/example",
+            "environment": [],
+            "externalConsole": true
+        }
+>>>>>>> bd162ceda (WIP 1)
     ]
 }

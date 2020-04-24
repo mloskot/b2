@@ -1,35 +1,33 @@
 import sequence ;
 import testing ;
 
-colors = black red green yellow blue magenta cyan white ;
-styles = bright ;
-
-for local f in $(colors)
+rule echo_colors ( foreground_colors + : background_colors + )
 {
-    ECHO "ECHO foreground : $(f)" : $(f) ;
-    ECHO "ECHO background : default $(f)" : default $(f) ;
+    for local f in $(foreground_colors)
+    {
+        for local b in $(background_colors)
+        {
+            if $(f) != $(b)
+            {
+                ECHO "ECHO message : $(f) : $(b) " ; # : $(f) : $(b) ;
+            }
+        }
+    }
 }
 
-for local f in $(colors)-$(styles)
-{
-    ECHO "ECHO foreground : $(f)" : $(f) ;
-    ECHO "ECHO background : default $(f)" : default $(f) ;
-}
+foreground = black red green yellow blue magenta cyan white ;
+background = [ sequence.reverse $(foreground) ] ;
 
-semantic_colors = error warning info ;
-for local f in $(semantic_colors)
-{
-    ECHO "ECHO message : $(f)" : $(f) ;
-}
+echo_colors $(foreground) : $(background) ;
 
-project
-    : requirements
-    <include>$(BOOST_ROOT)
-    ;
+# for local f in $(colors)-$(styles)
+# {
+#     ECHO "ECHO foreground : $(f)" : $(f) ;
+#     ECHO "ECHO background : default $(f)" : default $(f) ;
+# }
 
-compile test_compile.cpp ;
-compile test_compile_error.cpp ;
-compile-fail test_compile_fail.cpp ;
-run test_run.cpp ;
-run test_run_error.cpp ;
-run-fail test_run_fail.cpp ;
+# semantic_colors = error warning info ;
+# for local f in $(semantic_colors)
+# {
+#     ECHO "ECHO message : $(f)" : $(f) ;
+# }
