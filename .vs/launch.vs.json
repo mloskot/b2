@@ -1,0 +1,14 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+        "type": "default",
+        "project": "CMakeLists.txt",
+        "projectTarget": "b2.exe",
+        "name": "b2.exe",
+        "currentDir": "${workspaceRoot}/example",
+        "args": ["-c", "-sBOOST_BUILD_PATH=${workspaceRoot}", "colors"]
+    }
+  ]
+}

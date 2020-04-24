@@ -16,5 +16,16 @@
             "externalConsole": true,
             "MIMode": "lldb"
         },
+       {
+            "name": "(Windows) Launch CMake Target",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": ["-c","-sBOOST_BUILD_PATH=${workspaceFolder}", "colors"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}/example",
+            "environment": [],
+            "externalConsole": true
+        }
     ]
 }
